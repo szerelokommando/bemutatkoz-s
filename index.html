@@ -1,94 +1,415 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weboldal készítés kisvállalkozóknak</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weboldal készítés kisvállalkozásoknak – 100.000 Ft-tól</title>
+  <meta name="description" content="Modern, mobilbarát weboldal kisvállalkozásoknak. Igényfelmérő, automatikus ár- és idő kalkuláció, Google eszközök beállítása. 100.000 Ft-tól." />
+  <link rel="canonical" href="https://pelda.hu/" />
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Weboldal készítés kisvállalkozásoknak – 100.000 Ft-tól" />
+  <meta property="og:description" content="Igényfelmérő + automatikus kalkulátor. Google Cégem, Analytics, Merchant, Ads beállítás. Gyors, profi, átlátható." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pelda.hu/" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Schema.org JSON-LD: Szolgáltató/Freelancer -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Weboldal készítés kisvállalkozásoknak",
+    "description": "Bemutatkozó oldalak, Google eszközök és hirdetésindítás – 100.000 Ft-tól.",
+    "url": "https://pelda.hu/",
+    "areaServed": "HU",
+    "priceRange": "HUF 100000-500000",
+    "serviceType": ["Weboldal készítés", "Google Cégem", "Google Analytics", "Google Ads beállítás", "SEO alapok"],
+    "sameAs": [
+      "https://gyors-dugulas.hu"
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#0f172a;        /* sötét háttér (slate-900) */
+      --card:#111827;      /* kártya háttér */
+      --muted:#94a3b8;     /* szürke szöveg */
+      --text:#e5e7eb;      /* világos szöveg */
+      --brand:#38bdf8;     /* kék-cyan */
+      --brand-2:#22d3ee;   /* kiegészítő kék */
+      --accent:#10b981;    /* zöld akcentus */
+      --danger:#ef4444;
+      --shadow: 0 20px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 800px at 20% -10%, rgba(56,189,248,.15), transparent 60%), var(--bg); color:var(--text); line-height:1.6}
+
+    /* Sticky navigáció */
+    nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.7);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:10px 16px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
+    .brand .dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 0 12px rgba(34,211,238,.8)}
+    .nav-links{display:flex;gap:14px;flex-wrap:wrap}
+    .nav-links a{padding:8px 12px;border-radius:999px;color:var(--text);text-decoration:none;border:1px solid transparent}
+    .nav-links a:hover,.nav-links a.active{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.04)}
+    .cta{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#041018;padding:10px 16px;border-radius:999px;font-weight:700;text-decoration:none;box-shadow:var(--shadow)}
+    .cta:hover{transform:translateY(-1px)}
+
+    /* Szekciók és konténerek */
+    section{padding:72px 16px}
+    .container{max-width:1100px;margin:0 auto}
+    .grid{display:grid;gap:24px}
+    .two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:900px){.two{grid-template-columns:1fr}}
+
+    /* Hero */
+    header.hero{padding:96px 16px 64px;background:
+      radial-gradient(800px 400px at 80% -20%, rgba(34,211,238,.12), transparent 60%),
+      linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0) 40%)}
+    .hero-inner{max-width:1100px;margin:0 auto;display:grid;gap:32px;grid-template-columns:1.2fr .8fr;align-items:center}
+    @media (max-width:900px){.hero-inner{grid-template-columns:1fr}}
+    h1{font-size:clamp(28px,4.5vw,48px);line-height:1.15;margin:0 0 8px;font-weight:800}
+    p.lead{font-size:clamp(16px,2vw,20px);color:var(--muted);margin:0 0 18px}
+    .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 22px}
+    .badge{border:1px solid rgba(255,255,255,.18);padding:6px 10px;border-radius:999px;color:var(--text);font-size:14px;background:rgba(255,255,255,.03)}
+    .hero-img{position:relative}
+    .hero-img img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .floating{position:absolute;right:-8px;bottom:-10px;background:rgba(17,24,39,.9);border:1px solid rgba(255,255,255,.12);padding:10px 14px;border-radius:12px;font-size:14px;animation:float 4s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+    /* Kártyák */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .card h3{margin-top:0}
+
+    /* Szolgáltatás lista */
+    .services{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:900px){.services{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.services{grid-template-columns:1fr}}
+    .service{display:flex;gap:12px}
+    .service .icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 8px 20px rgba(56,189,248,.25)}
+
+    /* Kalkulátor */
+    .calc-wrap{display:grid;gap:24px;grid-template-columns:1fr 1fr}
+    @media (max-width:900px){.calc-wrap{grid-template-columns:1fr}}
+    .calc-panel{display:flex;flex-direction:column;gap:14px}
+    .calc-panel label{display:flex;align-items:center;gap:10px}
+    .summary{position:sticky;top:84px}
+    .price{font-size:28px;font-weight:800}
+    .timeline{list-style:none;padding:0;margin:12px 0 0}
+    .timeline li{padding:10px 12px;border-left:3px solid var(--brand);background:rgba(56,189,248,.06);margin:10px 0;border-radius:8px}
+
+    /* Referencia rács */
+    .refs{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:900px){.refs{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.refs{grid-template-columns:1fr}}
+    .ref img{width:100%;border-radius:12px}
+
+    /* Kapcsolat űrlap */
+    form{display:grid;gap:12px}
+    input,select,textarea,button{font:inherit}
+    input,select,textarea{padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:var(--text)}
+    input::placeholder,textarea::placeholder{color:#9fb1c7}
+    button{padding:12px 16px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#041018;font-weight:800;cursor:pointer}
+    button:hover{transform:translateY(-1px)}
+
+    /* Lábléc */
+    footer{padding:36px 16px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted)}
+
+    /* Animációk – belépéskor */
+    .reveal{opacity:0;transform:translateY(10px);transition:all .6s ease}
+    .reveal.in-view{opacity:1;transform:none}
+  </style>
 </head>
 <body>
+  <!-- Navigáció -->
+  <nav aria-label="Fő navigáció">
+    <div class="nav-inner">
+      <div class="brand"><span class="dot" aria-hidden="true"></span> <span>Profi Weboldalak</span></div>
+      <div class="nav-links">
+        <a href="#rolam" class="nav-link">Rólam</a>
+        <a href="#celom" class="nav-link">Célom</a>
+        <a href="#szolgaltatasok" class="nav-link">Szolgáltatásaim</a>
+        <a href="#projekt" class="nav-link">Projekt indítása</a>
+        <a href="#kapcsolat" class="nav-link cta">Kapcsolat</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- Hero szekció -->
-  <header>
-    <h1>Modern weboldal kisvállalkozásoknak – 100.000 Ft-tól</h1>
-    <p>Könnyen, gyorsan, személyre szabva. Igényfelmérőnkkel állítsd össze, mire van szükséged!</p>
-    <a href="#ajanlat">Ajánlatkérés indítása</a>
+  <!-- Hero -->
+  <header class="hero" id="home">
+    <div class="hero-inner">
+      <div>
+        <h1 class="reveal">Modern weboldal kisvállalkozásoknak – 100.000 Ft-tól</h1>
+        <p class="lead reveal" style="transition-delay:.06s">Gyors, átlátható és SEO-barátnak tervezve. Google eszközökkel és hirdetésindítással együtt.</p>
+        <div class="hero-badges reveal" style="transition-delay:.12s">
+          <span class="badge">Bemutatkozó oldal</span>
+          <span class="badge">Google Cégem</span>
+          <span class="badge">Analytics & Ads</span>
+          <span class="badge">SEO alapok</span>
+        </div>
+        <a class="cta reveal" style="transition-delay:.18s" href="#projekt">Indítsd el az ajánlatkérést</a>
+      </div>
+      <div class="hero-img reveal" style="transition-delay:.1s">
+        <img src="/assets/hero-office.jpg" alt="Modern weboldal készítése laptopon" loading="eager" />
+        <div class="floating">100k Ft-tól • Mobilbarát • Gyors kivitelezés</div>
+      </div>
+    </div>
   </header>
+
+  <!-- Rólam -->
+  <section id="rolam">
+    <div class="container grid two">
+      <div class="reveal">
+        <img src="/assets/about-portrait.jpg" alt="Fejlesztő portréja" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow)" loading="lazy" />
+      </div>
+      <div class="reveal" style="transition-delay:.06s">
+        <h2>Rólam</h2>
+        <p>Kisvállalkozásoknak készítek modern, gyors és keresőbarát weboldalakat. A célom, hogy az online jelenlét ne legyen akadály, hanem egyszerű eszköz az ügyfélszerzéshez.</p>
+        <ul>
+          <li>Egyszerű, átlátható csomagok</li>
+          <li>Google eszközök beállítása (Cégem, Analytics, Merchant, Ads)</li>
+          <li>Utólagos támogatás és karbantartás igény szerint</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Célom -->
+  <section id="celom">
+    <div class="container grid two">
+      <div class="reveal">
+        <h2>Célom</h2>
+        <p>Gyors, megfizethető és profi megoldást adni azoknak a kisvállalkozásoknak, akik szeretnének online láthatóvá válni. Nem túlgondolt rendszerek, hanem működő, mérhető eredmények.</p>
+        <div class="card"><strong>Fókusz:</strong> bemutatkozó oldalak, hirdetésindítás, SEO alapok – hogy már az első héten jöjjenek az érdeklődők.</div>
+      </div>
+      <div class="reveal" style="transition-delay:.06s">
+        <img src="/assets/goal-desk.jpg" alt="Célorientált webfejlesztés" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow)" loading="lazy" />
+      </div>
+    </div>
+  </section>
 
   <!-- Szolgáltatások -->
   <section id="szolgaltatasok">
-    <h2>Szolgáltatások</h2>
-    <ul>
-      <li>✅ Bemutatkozó weboldal készítés</li>
-      <li>✅ Google Cégem regisztráció és optimalizálás</li>
-      <li>✅ Google Analytics & Merchant Center beállítás</li>
-      <li>✅ Google Ads kampány indítás</li>
-      <li>✅ SEO alapok</li>
-      <li>✅ Webshop modul</li>
-    </ul>
+    <div class="container">
+      <h2 class="reveal">Szolgáltatásaim</h2>
+      <div class="grid services">
+        <div class="card service reveal"><div class="icon" aria-hidden="true"></div><div><h3>Bemutatkozó weboldal</h3><p>Egyszerű, gyors és mobilbarát. 
+        SEO-alapokkal és mérőkóddal.</p></div></div>
+        <div class="card service reveal" style="transition-delay:.03s"><div class="icon"></div><div><h3>Google Cégem</h3><p>Regisztráció, profil-optimalizálás, fotók, kategóriák, posztok.</p></div></div>
+        <div class="card service reveal" style="transition-delay:.06s"><div class="icon"></div><div><h3>Analytics & Merchant</h3><p>Mérés beállítása és alap riportok; Merchant a termékekhez.</p></div></div>
+        <div class="card service reveal" style="transition-delay:.09s"><div class="icon"></div><div><h3>Google Ads indítás</h3><p>Kulcsszókutatás, hirdetésszöveg, költségkeret és kampány beállítása.</p></div></div>
+        <div class="card service reveal" style="transition-delay:.12s"><div class="icon"></div><div><h3>SEO alapok</h3><p>Meta cím/description, sebesség, képek optimalizálása.</p></div></div>
+        <div class="card service reveal" style="transition-delay:.15s"><div class="icon"></div><div><h3>Webshop modul</h3><p>Kosár, fizetés, szállítás – egyszerű, induló készlethez.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projekt indítása (kalkulátor + igényfelmérő) -->
+  <section id="projekt">
+    <div class="container">
+      <h2 class="reveal">Projekt indítása</h2>
+      <p class="reveal" style="max-width:720px">Töltsd ki az igényfelmérőt: válaszd ki, mire van szükséged, és a rendszer kiszámolja a becsült árat és időt. A folyamat-lépéseket is megmutatjuk, hogy érthető legyen, miért ennyi.</p>
+
+      <div class="grid calc-wrap">
+        <!-- Bal oldal: kérdések -->
+        <div class="card calc-panel reveal">
+          <h3>1) Domain és alapok</h3>
+          <label for="domainnev">Milyen neve legyen a weboldaladnak?</label>
+          <div class="grid two">
+            <input id="domainnev" type="text" placeholder="pl. vallalkozasom" />
+            <select id="tld">
+              <option value=".hu">.hu</option>
+              <option value=".com">.com</option>
+              <option value=".eu">.eu</option>
+            </select>
+          </div>
+
+          <h3>2) Design</h3>
+          <label><input type="checkbox" id="hasLogo"> Van logóm</label>
+          <label><input type="checkbox" id="hasPhotos"> Vannak saját képeim</label>
+          <label><input type="checkbox" id="needDesign"> Kérem, hogy tervezzétek meg (arculat + képek)</label>
+
+          <h3>3) Szolgáltatások</h3>
+          <label><input type="checkbox" class="svc" data-service="Bemutatkozó weboldal"> Bemutatkozó weboldal</label>
+          <label><input type="checkbox" class="svc" data-service="Google Cégem"> Google Cégem</label>
+          <label><input type="checkbox" class="svc" data-service="Google Analytics"> Google Analytics</label>
+          <label><input type="checkbox" class="svc" data-service="Google Ads kampány"> Google Ads kampány</label>
+          <label><input type="checkbox" class="svc" data-service="SEO alapok"> SEO alapok</label>
+          <label><input type="checkbox" class="svc" data-service="Webshop modul"> Webshop modul</label>
+        </div>
+
+        <!-- Jobb oldal: összegzés -->
+        <aside class="card summary reveal" aria-live="polite">
+          <h3>Összegzés</h3>
+          <div id="price" class="price">0 Ft</div>
+          <div id="time" style="margin-top:4px">0 hét</div>
+          <div style="height:1px;background:rgba(255,255,255,.12);margin:12px 0"></div>
+          <h4>Folyamatlépések</h4>
+          <ul id="timeline" class="timeline"></ul>
+          <div class="card" style="margin-top:12px;background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.35)">
+            <strong>Megjegyzés:</strong> A kalkuláció tájékoztató jellegű. Visszaigazoljuk és pontosítjuk, ha kell.
+          </div>
+          <button id="sendQuote" style="margin-top:12px">Ajánlatkérés beküldése</button>
+          <div id="quoteMsg" style="margin-top:8px;color:var(--muted)"></div>
+        </aside>
+      </div>
+    </div>
   </section>
 
   <!-- Referenciák -->
   <section id="referenciak">
-    <h2>Referenciák</h2>
-    <div>
-      <h3>gyors-dugulas.hu</h3>
-      <p>Teljes weboldal kialakítás + Google Cégem és hirdetés indítás.</p>
-      <a href="https://gyors-dugulas.hu" target="_blank">Megtekintés</a>
+    <div class="container">
+      <h2 class="reveal">Referenciák</h2>
+      <div class="grid refs">
+        <a class="card ref reveal" href="https://gyors-dugulas.hu" target="_blank" rel="noopener">
+          <img src="/assets/reference-gd.jpg" alt="gyors-dugulas.hu képernyőkép" loading="lazy" />
+          <h3>gyors-dugulas.hu</h3>
+          <p>Teljes weboldal kialakítás, Google Cégem és hirdetésindítás.</p>
+        </a>
+        <div class="card ref reveal" style="display:flex;align-items:center;justify-content:center;min-height:180px">
+          Hamarosan további munkák…
+        </div>
+        <div class="card ref reveal" style="display:flex;align-items:center;justify-content:center;min-height:180px">
+          
+        </div>
+      </div>
     </div>
-  </section>
-
-  <!-- Rólam -->
-  <section id="rolam">
-    <h2>Rólam</h2>
-    <p>Kisvállalkozásoknak segítek online jelenlétet építeni. 
-       Gyors, megbízható és egyszerűen kezelhető weboldalakat készítek, 
-       amelyekhez Google eszközöket és hirdetéseket is beállítok.</p>
-  </section>
-
-  <!-- Igényfelmérő / Ajánlatkérés -->
-  <section id="ajanlat">
-    <h2>Igényfelmérés és ajánlatkérés</h2>
-
-    <!-- Domain kérdés -->
-    <label for="domainnev">Milyen neve legyen a weboldaladnak?</label><br>
-    <input type="text" id="domainnev" placeholder="pl. vallalkozasom">
-    <select>
-      <option>.hu</option>
-      <option>.com</option>
-      <option>.eu</option>
-    </select>
-
-    <!-- Design kérdések -->
-    <h3>Design</h3>
-    <label><input type="checkbox"> Van logóm</label><br>
-    <label><input type="checkbox"> Vannak saját képeim</label><br>
-    <label><input type="checkbox"> Kérem, hogy tervezzétek meg</label>
-
-    <!-- Szolgáltatás választó -->
-    <h3>Szolgáltatások</h3>
-    <label><input type="checkbox"> Bemutatkozó weboldal</label><br>
-    <label><input type="checkbox"> Google Cégem</label><br>
-    <label><input type="checkbox"> Google Analytics</label><br>
-    <label><input type="checkbox"> Google Ads kampány</label><br>
-    <label><input type="checkbox"> SEO alapok</label><br>
-    <label><input type="checkbox"> Webshop modul</label><br>
-
-    <!-- Ár és idő kalkuláció helye -->
-    <div id="kalkulacio">
-      <p>Jelenlegi csomag ára: <strong>0 Ft</strong></p>
-      <p>Becsült elkészítési idő: <strong>0 hét</strong></p>
-    </div>
-
-    <!-- Beküldés -->
-    <button>Ajánlatkérés beküldése</button>
   </section>
 
   <!-- Kapcsolat -->
   <section id="kapcsolat">
-    <h2>Kapcsolat</h2>
-    <p>E-mail: <a href="mailto:valami@email.com">valami@email.com</a></p>
-    <p>Telefon: +36 30 123 4567</p>
+    <div class="container grid two">
+      <div class="reveal">
+        <h2>Kapcsolat</h2>
+        <p>Vedd fel velem a kapcsolatot, vagy használd a fenti kalkulátort és küldd be az ajánlatkérést.</p>
+        <p><strong>E-mail:</strong> <a href="mailto:hello@pelda.hu">hello@pelda.hu</a><br/>
+           <strong>Telefon:</strong> +36 30 123 4567</p>
+        <img src="/assets/contact-bg.jpg" alt="Kapcsolat – munkaasztal" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow)" loading="lazy" />
+      </div>
+      <div class="reveal">
+        <form id="contactForm" aria-label="Kapcsolatfelvételi űrlap">
+          <input type="text" id="name" name="name" placeholder="Neved" required />
+          <input type="email" id="email" name="email" placeholder="E-mail címed" required />
+          <textarea id="message" name="message" rows="5" placeholder="Üzeneted" required></textarea>
+          <button type="submit">Üzenet küldése</button>
+          <small id="formMsg" style="color:var(--muted)"></small>
+        </form>
+      </div>
+    </div>
   </section>
 
+  <footer>
+    <div class="container">© <span id="year"></span> Profi Weboldalak • Minden jog fenntartva.</div>
+  </footer>
+
+  <script>
+    // --- Scrollspy a navigációhoz ---
+    const sections = ["rolam","celom","szolgaltatasok","projekt","kapcsolat"]; 
+    const links = document.querySelectorAll('.nav-link');
+    const setActive = () => {
+      let fromTop = window.scrollY + 120;
+      links.forEach(link => link.classList.remove('active'));
+      sections.forEach(id => {
+        const sec = document.getElementById(id);
+        if(!sec) return;
+        if (sec.offsetTop <= fromTop && (sec.offsetTop + sec.offsetHeight) > fromTop) {
+          const active = document.querySelector(`.nav-links a[href="#${id}"]`);
+          if(active) active.classList.add('active');
+        }
+      });
+    };
+    window.addEventListener('scroll', setActive);
+    setActive();
+
+    // --- Belépő animációk (IntersectionObserver) ---
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
+    },{threshold:.18});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // --- Kalkulátor adatok (alacsony–közép árak) ---
+    const services = {
+      "Bemutatkozó weboldal": { price: 100000, time: 1, steps: [
+        "Domain és tárhely egyeztetés",
+        "Oldalstruktúra és design terv",
+        "Tartalom beillesztés és mobilteszt",
+        "SEO-alapok és mérőkód"
+      ]},
+      "Google Cégem": { price: 20000, time: 0.5, steps: [
+        "Profil létrehozása / igénylése",
+        "Cégnév, kategóriák, nyitvatartás",
+        "Fotók és leírás feltöltése"
+      ]},
+      "Google Analytics": { price: 15000, time: 0.5, steps: [
+        "Mérőazonosító létrehozása",
+        "Kód beillesztése az oldalba",
+        "Teszt és esemény-ellenőrzés"
+      ]},
+      "Google Ads kampány": { price: 50000, time: 1, steps: [
+        "Kulcsszókutatás és célzás",
+        "Hirdetésszöveg és bővítmények",
+        "Kampánybeállítás és indulás"
+      ]},
+      "SEO alapok": { price: 30000, time: 1, steps: [
+        "Kulcsszavak kiválasztása",
+        "Meta címek/description",
+        "Képek optimalizálása"
+      ]},
+      "Webshop modul": { price: 180000, time: 3, steps: [
+        "Termékek és kategóriák",
+        "Kosár és fizetés beállítása",
+        "Tesztelés és biztonsági ellenőrzés"
+      ]}
+    };
+
+    const svcBoxes = document.querySelectorAll('.svc');
+    const priceEl = document.getElementById('price');
+    const timeEl  = document.getElementById('time');
+    const tlEl    = document.getElementById('timeline');
+
+    function updateCalc(){
+      let price = 0, time = 0; let steps = [];
+      svcBoxes.forEach(chk=>{
+        if(chk.checked){
+          const name = chk.dataset.service;
+          const item = services[name];
+          price += item.price; time += item.time; steps.push(...item.steps);
+        }
+      });
+      // Extra: ha nincs logó/kép és igényli a tervezést, adjunk hozzá kis időt és árat
+      const needDesign = document.getElementById('needDesign').checked;
+      if(needDesign){ price += 20000; time += 0.5; steps.push('Alap arculati elemek és képek összeállítása'); }
+
+      priceEl.textContent = price.toLocaleString('hu-HU') + ' Ft';
+      timeEl.textContent  = (time === 0 ? 0 : time) + ' hét';
+      tlEl.innerHTML = steps.length ? steps.map(s=>`<li>${s}</li>`).join('') : '<li>Jelöld ki a szükséges szolgáltatásokat.</li>';
+    }
+    svcBoxes.forEach(chk=>chk.addEventListener('change', updateCalc));
+    document.getElementById('needDesign').addEventListener('change', updateCalc);
+    updateCalc();
+
+    // --- Ajánlatkérés gomb (demó üzenet) ---
+    document.getElementById('sendQuote').addEventListener('click', ()=>{
+      const dm = document.getElementById('domainnev').value || '—';
+      const tld = document.getElementById('tld').value;
+      const quoteMsg = document.getElementById('quoteMsg');
+      quoteMsg.textContent = `Köszönjük! Ez egy nagyobb projekt lehet. Vissza fogjuk igazolni a részleteket. Domain ötlet: ${dm}${tld}`;
+    });
+
+    // --- Kapcsolat űrlap (demó) ---
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      document.getElementById('formMsg').textContent = 'Köszönöm az üzenetet! Hamarosan jelentkezem.';
+      e.target.reset();
+    });
+
+    // Év
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
